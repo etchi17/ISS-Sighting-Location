@@ -17,16 +17,51 @@ wget https://nasa-public-data.s3.amazonaws.com/iss-coords/2022-02-13/ISS_OEM/ISS
 #### ISS Sighting Data:
 - This data can also be downloaded by visiting https://data.nasa.gov/Space-Science/ISS_COORDS_2022-02-13/r6u8-bhhq
 - Right click the `XML` button below the header "XMLsightingData_citiesUSA02" and click on "Copy link address"
-- In a separate directory on your command line terminal, execute the command `wget` followed by the link you just copied that you can paste by right clicking. Alternatively, you can also execute the command:
+- In that same directory on your command line terminal, execute the command `wget` followed by the link you just copied that you can paste by right clicking. Alternatively, you can also execute the command:
 ```
 wget https://nasa-public-data.s3.amazonaws.com/iss-coords/2022-02-13/ISS_sightings/XMLsightingData_citiesUSA02.xml
 ```
 
-### Building the Container fron Dockerfile
+### Building the Container from Dockerfile
+
+In order to build the container from a Dockerfile, we're going to need to add 3 new files to our directory:
+
+#### The Dockerfile:
+- Touch a file named "Dockerfile" into your directory by executing the following command:
+```
+touch Dockerfile
+```
+- Go in and edit the newly created file by executing the command:
+```
+vim Dockerfile
+```
+- Once inside enter the following lines of code to complete building the Dockerfile:
+```
+FROM python:3.9
+
+RUN pip3 install --user xmltodict
+RUN mkdir /app
+WORKDIR /app
+COPY requirements.txt /app/requirements.txt
+RUN pip install -r /app/requirements.txt
+COPY . /app
+
+ENTRYPOINT ["python"]
+CMD ["app.py"]
+```
+
+
+
+###
 
 
 ###
+
+
 ###
-###
-###
-###
+
+### Citations (MLA)
+
+Goodwin, S. (n.d.). ISS_COORDS_2022-02-13. NASA. https://nasa-public-data.s3.amazonaws.com/iss-coords/2022-02-13/ISS_OEM/ISS.OEM_J2K_EPH.xml Retrieved March 17, 2022, from https://data.nasa.gov/Space-Science/ISS_COORDS_2022-02-13/r6u8-bhhq
+
+Goodwin, S. (n.d.). XMLsightingData_citiesUSA02. NASA. Retrieved March 17, 2022, from https://nasa-public-data.s3.amazonaws.com/iss-coords/2022-02-13/ISS_sightings/XMLsightingData_citiesUSA02.xml
