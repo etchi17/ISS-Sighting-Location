@@ -24,14 +24,14 @@ wget https://nasa-public-data.s3.amazonaws.com/iss-coords/2022-02-13/ISS_sightin
 
 ### Building the Container from Dockerfile
 
-In order to build the container from a Dockerfile, we're going to need to add 3 new files to our directory:
+In order to build the container from a Dockerfile, we're going to need to add 2 new files to our directory:
 
-#### The Dockerfile:
+#### Dockerfile:
 - Touch a file named "Dockerfile" into your directory by executing the following command:
 ```
 touch Dockerfile
 ```
-- Go in and edit the newly created file by executing the command:
+- Go in and edit the newly created file with a text editor of your choice (vim was used as the text editor of choice) by executing the command:
 ```
 vim Dockerfile
 ```
@@ -50,6 +50,30 @@ ENTRYPOINT ["python"]
 CMD ["app.py"]
 ```
 
+#### requirements.txt:
+
+A simple text file that the Dockerfile uses on execution.
+- Touch a file named "requirements.txt" into your directory by inputting the following command:
+```
+touch requirements.txt
+```
+- Open the newly created file with a text editor as so:
+```
+vim requirements.txt
+```
+- Add the following line of code and exit out of the file:
+```
+Flask==2.0.3
+```
+
+Once those files have been added to your directory, you can build the container by running the following command:
+```
+docker build -t <username>/<code>:<version> .
+```
+NOTE: Be sure to replace <username> with your Docker Hub username, <code> with the name of your code, and <version> with the name of your version of choice.
+
+
+#### Makefile:
 
 
 ###
