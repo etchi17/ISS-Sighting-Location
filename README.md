@@ -1,12 +1,12 @@
-## Querying Data on ISS Locations Around the World
+# Querying Data on ISS Locations Around the World
 
 In this project, we are given two data sets to work with, one containing the positonal and velocity data of the ISS and the other containing sighting data of the ISS from specific citiess in the United States. Our goal is to better sort and represent the data stored by using a Flask application to query and return information from the ISS data set. We would then aim to containerize the Flask application by making a Docker image from a Dockerfile that we would execute using a Makefile. We also made a unit test to test all of the functions and routes used in the Flask application to ensure that they worked correctly. All of these steps exist to allow us to better sort and analyze large and complex sets of data. With the evergrowing prevalence of large data sets, having to sift through it all could pose a daunting, yet important task. Thus we aim to facilitate this task by providing methods that breakdown the data sets layer by layer, improving the user's understanding and accessibilty of them.
 
-### Downloading Original Data
+## Downloading Original Data
 
 In order to start using this application, you're first going to need the data sets to work with. In this project we specifically work with two data sets:
 
-#### ISS Positional and Velocity Data:
+### ISS Positional and Velocity Data:
 - This can be downloaded by first visiting https://data.nasa.gov/Space-Science/ISS_COORDS_2022-02-13/r6u8-bhhq
 - Right click the `XML` button below the header "Public Distribution File" and click on "Copy link address"
 - In a separate directory on your command line terminal, execute the command `wget` followed by the link you just copied that you can paste by right clicking. Alternatively, you can also execute the command:
@@ -14,7 +14,7 @@ In order to start using this application, you're first going to need the data se
 wget https://nasa-public-data.s3.amazonaws.com/iss-coords/2022-02-13/ISS_OEM/ISS.OEM_J2K_EPH.xml
 ```
 
-#### ISS Sighting Data:
+### ISS Sighting Data:
 - This data can also be downloaded by visiting https://data.nasa.gov/Space-Science/ISS_COORDS_2022-02-13/r6u8-bhhq
 - Right click the `XML` button below the header "XMLsightingData_citiesUSA02" and click on "Copy link address"
 - In that same directory on your command line terminal, execute the command `wget` followed by the link you just copied that you can paste by right clicking. Alternatively, you can also execute the command:
@@ -22,11 +22,11 @@ wget https://nasa-public-data.s3.amazonaws.com/iss-coords/2022-02-13/ISS_OEM/ISS
 wget https://nasa-public-data.s3.amazonaws.com/iss-coords/2022-02-13/ISS_sightings/XMLsightingData_citiesUSA02.xml
 ```
 
-### Building the Container from Dockerfile
+## Building the Container from Dockerfile
 
 1. In order to build the container from a Dockerfile, we're going to need to add 2 new files to our directory:
 
-	#### Dockerfile:
+	### Dockerfile:
 	- Touch a file named "Dockerfile" into your directory by executing `touch Dockerfile`
 	- Go in and edit the newly created file with a text editor of your choice (vim was used as the text editor of choice) by executing `vim Dockerfile`
 	- Once inside enter the following lines of code to complete building the Dockerfile:
@@ -44,7 +44,7 @@ wget https://nasa-public-data.s3.amazonaws.com/iss-coords/2022-02-13/ISS_sightin
 	CMD ["app.py"]
 	```
 
-	#### requirements.txt:
+	### requirements.txt:
 	- Touch a file named "requirements.txt" into your directory by inputting `touch requirements.txt`
 	- Open the newly created file with a text editor with `vim requirements.txt`
 	- Add the following line of code and exit out of the file: `Flask==2.0.3`
@@ -70,7 +70,7 @@ Alternatively, you can compress the commands done above (after creating the Dock
 
 2. Create a Makefile:
 
-	#### Makefile:
+	### Makefile:
 	- Touch a file named "Makefile" into your directory by executing `touch Makefile`
 	- Go in and edit the newly created file with a text editor of your choice by executing `vim Makefile`
 	- Once inside enter the following lines of code to complete building the Makefile:
@@ -109,7 +109,7 @@ If any of the above is not found, you can try to debug it using:
 docker logs "container-name"
 ```
 
-### Pulling a Working Container from Docker Hub
+## Pulling a Working Container from Docker Hub
 
 1. To pull a working container from Docker hub, simply execute the command:
 	```
@@ -118,7 +118,7 @@ docker logs "container-name"
 
 2. Now that you have successfully pulled the container, you can run it using the command used in the previous section under __Building the Container from Dockerfile__
 
-### Interacting with Routes in Application
+## Interacting with Routes in Application
 
 1. Start off by executing the command `curl localhost:5007/` to return a string containing all routes in the Flask application, how to use them, and their expected outputs:
 ```
@@ -148,7 +148,7 @@ Routes for Querying Sighting Data
 
 3. After doing so, you can now utilize the routes to query data by entering them after `curl localhost:5007/`
 
-#### Example
+### Example
 Input: `curl localhost:5007/countries/United_States/regions/California/cities/Los_Angeles`
 
 Output:
@@ -167,7 +167,7 @@ ISS was spotted on Wed Feb 23/04:15 AM for < 1 minutes at a max elevation of 10,
 ISS was spotted on Thu Feb 24/05:01 AM for < 1 minutes at a max elevation of 11, entering 11 above N, exiting 10 above N, with utc offset: -8.0, utc time: 13:01, and utc date: Feb 24, 2022
 ```
 
-### Interpreting Return Values
+## Interpreting Return Values
 
 #### Routes:
 1. `/`
@@ -319,7 +319,7 @@ ISS was spotted on Thu Feb 24/05:01 AM for < 1 minutes at a max elevation of 11,
 	2. Output for `/countries/United_States/regions/California/Los_Angeles` shown as example at end of __Interacting with Routes in Application__
 	
 
-### Citations (MLA)
+## Citations (MLA)
 
 Goodwin, S. (n.d.). ISS_COORDS_2022-02-13. NASA. https://nasa-public-data.s3.amazonaws.com/iss-coords/2022-02-13/ISS_OEM/ISS.OEM_J2K_EPH.xml Retrieved March 17, 2022, from https://data.nasa.gov/Space-Science/ISS_COORDS_2022-02-13/r6u8-bhhq
 
