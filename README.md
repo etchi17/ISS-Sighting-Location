@@ -111,16 +111,16 @@ docker logs "container-name"
 
 ### Pulling a Working Container from Docker Hub
 
-To pull a working container from Docker hub, simply execute the command:
-```
-docker pull <username>/<code>:<version>
-```
+1. To pull a working container from Docker hub, simply execute the command:
+	```
+	docker pull <username>/<code>:<version>
+	```
 
-Now that you have successfully pulled the container, you can run it using the command used in the previous section under __Building the Container from Dockerfile__
+2. Now that you have successfully pulled the container, you can run it using the command used in the previous section under __Building the Container from Dockerfile__
 
 ### Interacting with Routes in Application
 
-Start off by executing the command `curl localhost:5007/` to return a string containing all routes in the Flask application, how to use them, and their expected outputs:
+1. Start off by executing the command `curl localhost:5007/` to return a string containing all routes in the Flask application, how to use them, and their expected outputs:
 ```
 ### ISS Sighting Location ###
 
@@ -144,9 +144,9 @@ Routes for Querying Sighting Data
 /countries/<country>/regions/<region>/cities/<city>    (GET) lists all data associated with a specific <city> in a specific <region> in a specific <country> in sighting data
 ```
 
-Before you can use any of the routes to query the data, you have to read in the data first with: `curl localhost:5007/read_data -X POST`
+2. Before you can use any of the routes to query the data, you have to read in the data first with: `curl localhost:5007/read_data -X POST`
 
-After doing so, you can now utilize the routes to query data by entering them after `curl localhost:5007/`
+3. After doing so, you can now utilize the routes to query data by entering them after `curl localhost:5007/`
 
 #### Example
 Input: `curl localhost:5007/countries/United_States/regions/California/cities/Los_Angeles`
