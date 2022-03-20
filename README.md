@@ -70,9 +70,25 @@ Once those files have been added to your directory, you can build the container 
 ```
 docker build -t <username>/<code>:<version> .
 ```
-NOTE: Be sure to replace <username> with your Docker Hub username, <code> with the name of your code, and <version> with the name of your version of choice.
+NOTE: Be sure to replace `<username>` with your Docker Hub username, `<code>` with the name of your code, and `<version>` with the name of your version of choice.
 
+Once built, you can then run the docker container you just built by executing the command:
+```
+docker run --name "container-name" -d -p <port#>:5000 <username>/<code>:<version>
+```
+NOTE: Be sure to replace `<port#>` with your own port number and `"container-name"` with a name of your choice
 
+Now that you have built and ran your container, you can check if it is up and running with:
+```
+docker ps -a  
+```
+Which should output a table of the format displayed below.
+```
+CONTAINER ID   IMAGE                         COMMAND           CREATED         STATUS             PORTS                                             NAMES
+(Container ID) <username>/<code>:<version>   "python app.py"   (time created)  Up (time created)  0.0.0.0:<port#>->5000/tcp, :::<port#>->5000/tcp   "container-name"
+```
+You should see your container with the name you gave it on the table generated with the STATUS as Up and with the port you assigned it.
+  
 #### Makefile:
 
 
