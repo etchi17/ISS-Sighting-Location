@@ -27,6 +27,7 @@ wget https://nasa-public-data.s3.amazonaws.com/iss-coords/2022-02-13/ISS_sightin
 1. In order to build the container from a Dockerfile, we're going to need to add 2 new files to our directory:
 
 	### Dockerfile:
+	- This file is already included in the repository, but if you would like to create your own...
 	- Touch a file named "Dockerfile" into your directory by executing `touch Dockerfile`
 	- Go in and edit the newly created file with a text editor of your choice (vim was used as the text editor of choice) by executing `vim Dockerfile`
 	- Once inside enter the following lines of code to complete building the Dockerfile:
@@ -71,6 +72,7 @@ Alternatively, you can compress the commands done above (after creating the Dock
 2. Create a Makefile:
 
 	### Makefile:
+	- This file is also already included in the repository, but if you would like to create your own...
 	- Touch a file named "Makefile" into your directory by executing `touch Makefile`
 	- Go in and edit the newly created file with a text editor of your choice by executing `vim Makefile`
 	- Once inside enter the following lines of code to complete building the Makefile:
