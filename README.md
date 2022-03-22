@@ -318,7 +318,7 @@ ISS was spotted on Thu Feb 24/05:01 AM for < 1 minutes at a max elevation of 11,
 	
 10. `/countries/<country>/regions/<region>/cities/<city>`
 	1. Returns a large string listing all the data associated with a specific city in a specific region of a specific country in the sighting data
-	2. Output for `/countries/United_States/regions/California/Los_Angeles` shown as example at end of __Interacting with Routes in Application__
+	2. Output for `/countries/United_States/regions/California/cities/Los_Angeles` shown as example at end of __Interacting with Routes in Application__
 	
 
 ## Citations (MLA)
