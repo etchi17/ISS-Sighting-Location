@@ -4,6 +4,15 @@ import pytest
 read_data_from_file_into_dict()
 input = "input"
 
+def test_help():
+    assert isinstance(help(),str) == True
+
+def test_read_data_help():
+    assert isinstance(read_data_help(),str) == True
+
+def test_read_data_from_file_into_dict():
+    assert isinstance(read_data_from_file_into_dict(),str) == True
+
 def test_get_all_epochs():
     assert isinstance(get_all_epochs(),str) == True    
 
